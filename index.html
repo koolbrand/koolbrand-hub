@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Alquilo en Miami | Alojamientos Verificados</title>
+    <meta name="description" content="Tu semana en Miami, sin complicaciones. Alojamientos seleccionados en las mejores zonas. Reserva con 20% y el resto al llegar.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --color-primary: #1B4D3E;
+            --color-primary-light: #2A6B54;
+            --color-secondary: #F5F5F5;
+            --color-accent: #1B4D3E;
+            --color-text: #1A1A1A;
+            --color-text-light: #666666;
+            --color-white: #FFFFFF;
+            --color-bg: #FAFAFA;
+            --color-bg-light: #F0F0F0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 8px; }
+        .mb-2 { margin-bottom: 16px; }
+        .mb-3 { margin-bottom: 24px; }
+        .mb-4 { margin-bottom: 32px; }
+        .mb-5 { margin-bottom: 48px; }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20BD5A;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-light);
+            transition: var(--transition);
+        }
+
+        .nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-trust {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trust-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-primary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E8F0ED 100%);
+            overflow: hidden;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 30%, rgba(248,249,250,0.9) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 55%;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .hero-trust-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--color-text);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        .step-note {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #E8F5E9;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--color-primary);
+        }
+
+        /* ===== PACKS ===== */
+        .packs {
+            padding: 100px 0;
+            background: var(--color-bg-light);
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .pack-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .pack-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pack-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .pack-content {
+            padding: 30px;
+        }
+
+        .pack-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #E8F5E9;
+            color: var(--color-primary);
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .pack-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .pack-duration {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .pack-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .pack-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--color-text-light);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-bg-light);
+        }
+
+        .pack-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pack-features svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .pack-cta {
+            width: 100%;
+        }
+
+        /* ===== PROPERTIES ===== */
+        .properties {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: var(--color-white);
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .property-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--color-white);
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .property-image {
+            height: 220px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            position: relative;
+        }
+
+        .property-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .property-content {
+            padding: 24px;
+        }
+
+        .property-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .property-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-bottom: 12px;
+        }
+
+        .property-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .property-price span {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--color-text-light);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .modal-gallery {
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .modal-content {
+            padding: 30px;
+        }
+
+        .modal-content h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .modal-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .modal-detail {
+            text-align: center;
+            padding: 16px;
+            background: var(--color-bg-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .modal-detail svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .modal-detail span {
+            display: block;
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .modal-price {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .modal-price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--color-text-light);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--color-bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .testimonial-info h4 {
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .testimonial-info span {
+            font-size: 13px;
+            color: var(--color-text-light);
+        }
+
+        .testimonial-stars {
+            color: #FFD700;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        .testimonials-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* ===== TRUST BLOCK ===== */
+        .trust-block {
+            padding: 80px 0;
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .trust-item {
+            padding: 20px;
+        }
+
+        .trust-item svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .trust-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .trust-item p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* ===== SOCIAL MEDIA ===== */
+        .social {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--color-bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 100px 0;
+            background: var(--color-bg-light);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--color-bg-light);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 0;
+            background: var(--color-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-cta {
+            text-align: center;
+            padding: 40px;
+            background: #E8F5E9;
+            border-radius: var(--radius-lg);
+        }
+
+        .contact-cta h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .contact-cta p {
+            font-size: 16px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+        }
+
+        .contact-form {
+            padding: 40px;
+            background: var(--color-bg-light);
+            border-radius: var(--radius-lg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 40px 0;
+            background: var(--color-text);
+            color: white;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ===== WHATSAPP FLOAT ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-video-container,
+            .hero-overlay {
+                display: none;
+            }
+            .steps-grid,
+            .packs-grid,
+            .properties-grid,
+            .testimonials-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .header-trust {
+                display: none;
+            }
+            .hero {
+                padding-top: 100px;
+                min-height: auto;
+                padding-bottom: 80px;
+            }
+            .hero-trust {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .section-title {
+                font-size: 32px;
+            }
+            .modal-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-inner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .whatsapp-float span {
+                display: none;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🏠</div>
+                    Te Alquilo en Miami
+                </a>
+                <nav class="nav">
+                    <a href="#como-funciona">Cómo funciona</a>
+                    <a href="#propiedades">Alojamientos</a>
+                    <a href="#testimonios">Testimonios</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+                <div class="header-cta">
+                    <div class="header-trust">
+                        <span class="trust-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            4.9/5
+                        </span>
+                        <span class="trust-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                            Reserva segura
+                        </span>
+                        <span class="trust-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            Respuesta rápida
+                        </span>
+                    </div>
+                    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami" class="btn btn-whatsapp" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a5.593 5.593 0 01-5.492-5.392A5.593 5.593 0 0112 5.403c1.619 0 3.127.776 4.246 2.074.339.393.532.89.532 1.425v.065c0 1.062-.382 2.063-1.08 2.81l-.457.457c-.378.378-.869.589-1.393.589H7.082c-.535 0-1.037-.223-1.411-.606l-.457-.457c-.634-.628-.986-1.45-.986-2.331 0-1.38 1.12-2.5 2.5-2.5h.002l.06.002c.69.006 1.336.22 1.872.631.536.412.872.988 1.008 1.743l.013.107c.007.063.011.127.011.192 0 .065-.005.13-.014.194l-.022.15c-.068.447-.219.868-.45 1.248-.231.38-.541.709-.923.977l-.083.059c-.378.252-.815.39-1.261.39H9.5c-.524 0-1.03-.167-1.461-.504l-.083-.078c-.431-.404-.66-.965-.66-1.544V16.5c0-.579.23-1.128.63-1.514l.064-.063c.4-.385.949-.594 1.492-.594h1.164c.524 0 1.023.186 1.403.522l.065.063c.399.385.615.9.615 1.444v.062z"/></svg>
+                        Cotizar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%231B4D3E' width='1920' height='1080'/%3E%3Ctext x='50%25' y='50%25' font-size='80' fill='white' text-anchor='middle'%3E🏠%3C/text%3E%3C/svg%3E">
+                <source src="../mnt/clientes/Te%20Alquilo%20en%20Miami/Web/Video/Te%20akquilo%20miami%20-%20Video%20Web.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Tu semana en Miami, sin complicaciones.</h1>
+                <p class="hero-sub">Alojamientos seleccionados en las mejores zonas. Reserva con 20% y el resto al llegar. Te enviamos 3 opciones en minutos por WhatsApp.</p>
+                <div class="hero-ctas">
+                    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami+-+Familias+y+Compras" class="btn btn-whatsapp" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a5.593 5.593 0 01-5.492-5.392A5.593 5.593 0 0112 5.403c1.619 0 3.127.776 4.246 2.074.339.393.532.89.532 1.425v.065c0 1.062-.382 2.063-1.08 2.81l-.457.457c-.378.378-.869.589-1.393.589H7.082c-.535 0-1.037-.223-1.411-.606l-.457-.457c-.634-.628-.986-1.45-.986-2.331 0-1.38 1.12-2.5 2.5-2.5h.002l.06.002c.69.006 1.336.22 1.872.631.536.412.872.988 1.008 1.743l.013.107c.007.063.011.127.011.192 0 .065-.005.13-.014.194l-.022.15c-.068.447-.219.868-.45 1.248-.231.38-.541.709-.923.977l-.083.059c-.378.252-.815.39-1.261.39H9.5c-.524 0-1.03-.167-1.461-.504l-.083-.078c-.431-.404-.66-.965-.66-1.544V16.5c0-.579.23-1.128.63-1.514l.064-.063c.4-.385.949-.594 1.492-.594h1.164c.524 0 1.023.186 1.403.522l.065.063c.399.385.615.9.615 1.444v.062z"/></svg>
+                        Cotizar por WhatsApp
+                    </a>
+                    <a href="#propiedades" class="btn btn-secondary">Ver alojamientos</a>
+                </div>
+                <div class="hero-trust">
+                    <span class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        +150 estancias/mes
+                    </span>
+                    <span class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        Atención 24/7
+                    </span>
+                    <span class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        Check-in fácil
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title text-center">Cómo funciona</h2>
+            <p class="section-subtitle text-center">3 simples pasos para reservar tu alojamiento en Miami</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Escríbenos por WhatsApp</h3>
+                    <p>Cuéntanos tus fechas de viaje y número de personas. Te Respondemos en minutos.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Te enviamos 3 opciones</h3>
+                    <p>Recibes alternativas A/B/C según zona y presupuesto. Sin compromiso.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Reservas con 20%</h3>
+                    <p>Bloqueas con el 20% y recibes confirmación + instrucciones de check-in.</p>
+                </div>
+            </div>
+            <div class="step-note">
+                💡 No hay motor de reserva porque trabajamos 1 a 1 para darte la mejor opción disponible.
+            </div>
+        </div>
+    </section>
+
+    <!-- Packs -->
+    <section class="packs" id="packs">
+        <div class="container">
+            <h2 class="section-title text-center">Elige tu plan</h2>
+            <p class="section-subtitle text-center">Selecciona el tipo de estancia que mejor se adapte a tu viaje</p>
+            <div class="packs-grid">
+                <div class="pack-card">
+                    <div class="pack-image">🛒</div>
+                    <div class="pack-content">
+                        <span class="pack-badge">Más vendido</span>
+                        <h3>Familias & Compras</h3>
+                        <p class="pack-duration">7 - 14 noches</p>
+                        <ul class="pack-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                                Lavadora y cocina equipada
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                                Zonas comunes amplias
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                                Parking incluido
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+el+pack+Familias+y+Compras.+Fechas%3A+%5Bfecha%5D.+Somos+%5Bpersonas%5D+personas." class="btn btn-primary pack-cta" target="_blank">Solicitar pack →</a>
+                    </div>
+                </div>
+                <div class="pack-card">
+                    <div class="pack-image">🏖️</div>
+                    <div class="pack-content">
+                        <span class="pack-badge">Relax</span>
+                        <h3>Playa & Relax</h3>
+                        <p class="pack-duration">7 - 10 noches</p>
+                        <ul class="pack-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.127 14.56l1.43-1.43 6.44 6.443L19.57 21zM17.42 8.83l2.86-2.86c.39-.39.39-1.02 0-1.41L18.15 2.44c-.39-.39-1.02-.39-1.41 0l-2.86 2.86 3.54 3.53z"/></svg>
+                                Cerca de la playa
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 21c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-1 .18-1.45.55-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-1.24-.55-1.45-.55-.55 0-.78.13-1.15.36-.45.27-1.07.64-2.18.64s-1.73-.37-2.18-.64c-.37-.22-.6-.36-1.15-.36-.56 0-1 .18-1.45.55-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-.9-.55-1.45-.55-.55 0-.78.13-1.15.36-.45.27-1.07.64-2.18.64-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36s-1 .18-1.45.55c-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-.9-.55-1.45-.55-.55 0-.78.13-1.15.36-.45.27-1.07.64-2.18.64v-2c.74 0 1.37-.64 1.89-1.27.4-.48.77-.93 1.15-1.25.45-.37.9-.55 1.45-.55.55 0 .78.13 1.15.36.45.27 1.07.64 2.18.64s1.73-.37 2.18-.64c.37-.22.6-.36 1.15-.36s1 .18 1.45.55c.38.32.75.77 1.15 1.25.52.63 1.05 1.27 1.89 1.27s1.38-.64 1.89-1.27c.4-.48.77-.93 1.15-1.25.45-.37 1.24-.55 1.45-.55.55 0 .78.13 1.15.36.45.27 1.07.64 2.18.64s1.73-.37 2.18-.64c.37-.22.6-.36 1.15-.36s1 .18 1.45.55c.38.32.75.77 1.15 1.25.52.63 1.05 1.27 1.89 1.27s1.38-.64 1.89-1.27c.4-.48.77-.93 1.15-1.25.45-.37 1.24-.55 1.45-.55.55 0 .78.13 1.15.36.45.27 1.07.64 2.18.64v2z"/></svg>
+                                Amenities premium
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                                Ideal para parejas
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+el+pack+Playa+y+Relax.+Fechas%3A+%5Bfecha%5D.+Somos+%5Bpersonas%5D+personas." class="btn btn-primary pack-cta" target="_blank">Solicitar pack →</a>
+                    </div>
+                </div>
+                <div class="pack-card">
+                    <div class="pack-image">💼</div>
+                    <div class="pack-content">
+                        <span class="pack-badge">Pro</span>
+                        <h3>Estadías Largas</h3>
+                        <p class="pack-duration">15 - 60 noches</p>
+                        <ul class="pack-features">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                                Descuentos especiales
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                                WiFi de alta velocidad
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+                                Workspace dedicado
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+el+pack+Estad%C3%ADas+Largas.+Fechas%3A+%5Bfecha%5D.+Somos+%5Bpersonas%5D+personas." class="btn btn-primary pack-cta" target="_blank">Solicitar pack →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties -->
+    <section class="properties" id="propiedades">
+        <div class="container">
+            <h2 class="section-title text-center">Alojamientos</h2>
+            <p class="section-subtitle text-center">Descubre nuestras propiedades seleccionadas en las mejores zonas de Miami</p>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="brickell">Brickell</button>
+                <button class="filter-btn" data-filter="downtown">Downtown</button>
+                <button class="filter-btn" data-filter="beach">Miami Beach</button>
+                <button class="filter-btn" data-filter="hollywood">Hollywood</button>
+            </div>
+
+            <div class="properties-grid">
+                <div class="property-card" data-zone="brickell" data-capacity="4-6">
+                    <div class="property-image">
+                        <span class="property-tag">Brickell</span>
+                        🏢
+                    </div>
+                    <div class="property-content">
+                        <h3>Moderno apartamento en Brickell</h3>
+                        <div class="property-meta">
+                            <span>👥 4-6 personas</span>
+                            <span>🛏️ 2 habitaciones</span>
+                            <span>🚿 2 baños</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$150/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+                <div class="property-card" data-zone="beach" data-capacity="2-4">
+                    <div class="property-image" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                        <span class="property-tag">Miami Beach</span>
+                        🏖️
+                    </div>
+                    <div class="property-content">
+                        <h3>Studio frente a la playa</h3>
+                        <div class="property-meta">
+                            <span>👥 2-4 personas</span>
+                            <span>🛏️ 1 habitación</span>
+                            <span>🚿 1 baño</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$120/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+                <div class="property-card" data-zone="hollywood" data-capacity="6+">
+                    <div class="property-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="property-tag">Hollywood</span>
+                        🏠
+                    </div>
+                    <div class="property-content">
+                        <h3>Casa familiar con piscina</h3>
+                        <div class="property-meta">
+                            <span>👥 6-8 personas</span>
+                            <span>🛏️ 4 habitaciones</span>
+                            <span>🚿 3 baños</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$200/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+                <div class="property-card" data-zone="downtown" data-capacity="4-6">
+                    <div class="property-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="property-tag">Downtown</span>
+                        🌆
+                    </div>
+                    <div class="property-content">
+                        <h3>Penthouse con vista al skyline</h3>
+                        <div class="property-meta">
+                            <span>👥 4-6 personas</span>
+                            <span>🛏️ 2 habitaciones</span>
+                            <span>🚿 2 baños</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$180/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+                <div class="property-card" data-zone="beach" data-capacity="4-6">
+                    <div class="property-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="property-tag">Miami Beach</span>
+                        🌴
+                    </div>
+                    <div class="property-content">
+                        <h3>Condo con amenities completos</h3>
+                        <div class="property-meta">
+                            <span>👥 4-6 personas</span>
+                            <span>🛏️ 2 habitaciones</span>
+                            <span>🚿 2 baños</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$160/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+                <div class="property-card" data-zone="brickell" data-capacity="2-4">
+                    <div class="property-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                        <span class="property-tag">Brickell</span>
+                        💎
+                    </div>
+                    <div class="property-content">
+                        <h3>Suite de lujo en tower</h3>
+                        <div class="property-meta">
+                            <span>👥 2-4 personas</span>
+                            <span>🛏️ 1 habitación</span>
+                            <span>🚿 1 baño</span>
+                        </div>
+                        <p class="property-price">Desde <strong>$130/noche</strong> <span>(según temporada)</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="propertyModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-gallery">🏠</div>
+            <div class="modal-content">
+                <h3 id="modalTitle">Moderno apartamento en Brickell</h3>
+                <div class="modal-details">
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <span>Capacidad</span>
+                    </div>
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                        <span>Habitaciones</span>
+                    </div>
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm10 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zM7 19c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm10 0c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/></svg>
+                        <span>Baños</span>
+                    </div>
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg>
+                        <span>Parking</span>
+                    </div>
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"/></svg>
+                        <span>Piscina</span>
+                    </div>
+                    <div class="modal-detail">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                        <span>Lavadora</span>
+                    </div>
+                </div>
+                <p class="modal-price">Desde <strong id="modalPrice">$150/noche</strong> <span>(según temporada)</span></p>
+                <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+este+alojamiento.+%C2%BFPuedes+darme+mas+detalles%3F" class="btn btn-whatsapp" target="_blank" style="width: 100%; justify-content: center;">
+                    Consultar disponibilidad por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title text-center">Lo que cuentan quienes ya se alojaron</h2>
+            <p class="section-subtitle text-center">Reseñas verificadas de huéspedes reales</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MC</div>
+                        <div class="testimonial-info">
+                            <h4>María Camila</h4>
+                            <span>Colombia</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Excelente atención desde el primer momento. Andy nos envió varias opciones y nos ayudó a elegir la mejor para nuestra familia. El apartamento estaba impecable."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-info">
+                            <h4>Juan Rodríguez</h4>
+                            <span>Medellín</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Segunda vez que viajo con ellos. Todo perfecto, el check-in fue fácil y el alojamiento exactly como las fotos. Recomendado 100%."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">LP</div>
+                        <div class="testimonial-info">
+                            <h4>Laura Pérez</h4>
+                            <span>Bogotá</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Nos encanto la experiencia. Atención super rápida por WhatsApp y nos gavearon con un descuento por estadía larga. Volveremos."</p>
+                </div>
+            </div>
+            <div class="testimonials-cta">
+                <a href="https://wa.me/1234567890?text=Hola%2C+me+gustar%C3%ADa+ver+mas+referencias+y+videos+de+alojamientos" class="btn btn-secondary" target="_blank">
+                    Ver más testimonios y videos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Block -->
+    <section class="trust-block">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <h3>Reserva clara</h3>
+                    <p>Paga el 20% para bloquear y el resto al llegar. Sin sorpresas.</p>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                    <h3>Acompañamiento</h3>
+                    <p>Atención personalizada antes y durante tu viaje.</p>
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <h3>Transparencia</h3>
+                    <p>Confirmación y condiciones por escrito antes de pagar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="social">
+        <div class="container">
+            <h2 class="section-title text-center">Síguenos en redes</h2>
+            <p class="section-subtitle text-center">Mira más tours, reseñas y contenido exclusivo</p>
+            <div class="social-links">
+                <a href="#" class="social-link" title="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="social-link" title="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title text-center">Preguntas frecuentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Por qué no hay reserva online?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Trabajamos 1 a 1 para darte la mejor opción disponible según tus fechas específicas. Así garantizamos que el alojamiento que reservas esté realmente disponible y en las mejores condiciones.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo funciona el pago del 20%?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pagas el 20% del total para bloquear tu reserva. El resto lo pagas al llegar al alojamiento. Te enviamos confirmación por escrito con todos los detalles.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué pasa si necesito cancelar?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes cancelar hasta 7 días antes de tu llegada para obtener el reembolso del 20%. Después de ese plazo, el depósito no es reembolsable pero puede transferirse a otra fecha.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué incluye el alojamiento?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Todos nuestros alojamientos incluyen: cocina equipada, lavadora, WiFi de alta velocidad, sábanas y toallas, artículos de baño básicos. Algunos incluyen parking y acceso a piscina/gimnasio.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Aceptan niños, cunas o mascotas?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, muchos de nuestros alojamientos son family-friendly. Podemos gestionar cunas y sillas altas sin costo adicional. Algunos aceptan mascotas - pregúntanos específicamente por tu opción preferida.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo es el check-in/check-out?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Check-in a partir de las 3 PM, check-out antes de las 11 AM. Te enviamos instrucciones detalladas 24 horas antes de tu llegada con código de acceso y contacto de emergencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title text-center">Hablemos</h2>
+            <div class="contact-grid">
+                <div class="contact-cta">
+                    <h3>¿Listo para tu viaje a Miami?</h3>
+                    <p>Escríbenos por WhatsApp y te respondemos en minutos con 3 opciones personalizadas.</p>
+                    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami.+Estas+son+mis+fechas%3A+%5Bentrada%5D+-+%5Bsalida%5D.+Somos+%5Bpersonas%5D+personas." class="btn btn-whatsapp" target="_blank" style="font-size: 18px; padding: 18px 36px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a5.593 5.593 0 01-5.492-5.392A5.593 5.593 0 0112 5.403c1.619 0 3.127.776 4.246 2.074.339.393.532.89.532 1.425v.065c0 1.062-.382 2.063-1.08 2.81l-.457.457c-.378.378-.869.589-1.393.589H7.082c-.535 0-1.037-.223-1.411-.606l-.457-.457c-.634-.628-.986-1.45-.986-2.331 0-1.38 1.12-2.5 2.5-2.5h.002l.06.002c.69.006 1.336.22 1.872.631.536.412.872.988 1.008 1.743l.013.107c.007.063.011.127.011.192 0 .065-.005.13-.014.194l-.022.15c-.068.447-.219.868-.45 1.248-.231.38-.541.709-.923.977l-.083.059c-.378.252-.815.39-1.261.39H9.5c-.524 0-1.03-.167-1.461-.504l-.083-.078c-.431-.404-.66-.965-.66-1.544V16.5c0-.579.23-1.128.63-1.514l.064-.063c.4-.385.949-.594 1.492-.594h1.164c.524 0 1.023.186 1.403.522l.065.063c.399.385.615.9.615 1.444v.062z"/></svg>
+                        Cotizar por WhatsApp
+                    </a>
+                    <p class="form-note" style="margin-top: 20px;">⭐ Respuesta garantizada en menos de 2 horas</p>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Gracias por tu mensaje. Te contactaremos pronto.');">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkin">Fecha entrada</label>
+                                <input type="date" id="checkin" name="checkin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout">Fecha salida</label>
+                                <input type="date" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Número de personas</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1 persona</option>
+                                <option value="2">2 personas</option>
+                                <option value="3">3 personas</option>
+                                <option value="4">4 personas</option>
+                                <option value="5">5 personas</option>
+                                <option value="6+">6+ personas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pack">Tipo de viaje</label>
+                            <select id="pack" name="pack">
+                                <option value="familias">Familias & Compras</option>
+                                <option value="playa">Playa & Relax</option>
+                                <option value="larga">Estadía Larga</option>
+                                <option value="otro">Otro / No estoy seguro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje (opcional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Cuéntanos más sobre tu viaje..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar solicitud</button>
+                        <p class="form-note">Te respondemos en menos de 4 horas</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Contacto</a>
+                </div>
+                <p class="footer-copy">© 2026 Te Alquilo en Miami. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a5.593 5.593 0 01-5.492-5.392A5.593 5.593 0 0112 5.403c1.619 0 3.127.776 4.246 2.074.339.393.532.89.532 1.425v.065c0 1.062-.382 2.063-1.08 2.81l-.457.457c-.378.378-.869.589-1.393.589H7.082c-.535 0-1.037-.223-1.411-.606l-.457-.457c-.634-.628-.986-1.45-.986-2.331 0-1.38 1.12-2.5 2.5-2.5h.002l.06.002c.69.006 1.336.22 1.872.631.536.412.872.988 1.008 1.743l.013.107c.007.063.011.127.011.192 0 .065-.005.13-.014.194l-.022.15c-.068.447-.219.868-.45 1.248-.231.38-.541.709-.923.977l-.083.059c-.378.252-.815.39-1.261.39H9.5c-.524 0-1.03-.167-1.461-.504l-.083-.078c-.431-.404-.66-.965-.66-1.544V16.5c0-.579.23-1.128.63-1.514l.064-.063c.4-.385.949-.594 1.492-.594h1.164c.524 0 1.023.186 1.403.522l.065.063c.399.385.615.9.615 1.444v.062z"/></svg>
+        <span>Escríbenos</span>
+    </a>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Property Filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const propertyCards = document.querySelectorAll('.property-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                propertyCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.zone === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal
+        const modal = document.getElementById('propertyModal');
+        
+        propertyCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h3').textContent;
+                const price = card.querySelector('.property-price').textContent;
+                
+                document.getElementById('modalTitle').textContent = title;
+                document.getElementById('modalPrice').textContent = price.split('Desde ')[1].split(' ')[0];
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Close modal on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+        });
+    </script>
+</body>
+</html>
