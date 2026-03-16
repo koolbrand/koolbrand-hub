@@ -377,6 +377,201 @@
             color: var(--color-primary);
         }
 
+        /* ===== HERO NUEVO - 2 COLUMNAS ===== */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
+                var(--color-bg);
+            overflow: visible;
+        }
+
+        .hero::before {
+            display: none;
+        }
+
+        .hero-new {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-main-image {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--radius-xl);
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 18px;
+            border-radius: var(--radius-full);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-text-wrapper {
+            padding: 20px 0;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 4.5vw, 52px);
+            color: var(--color-text);
+            margin-bottom: 16px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-teal);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-building-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--color-text-light);
+            background: var(--color-bg-light);
+            padding: 10px 16px;
+            border-radius: var(--radius-full);
+        }
+
+        .hero-feature svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+        }
+
+        .btn-book-now {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 42px;
+            background: #10B981 !important;
+            color: white !important;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-book-now:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        .hero-price {
+            margin-top: 20px;
+            font-size: 15px;
+            color: var(--color-text-muted);
+        }
+
+        .hero-price strong {
+            color: var(--color-primary);
+            font-size: 20px;
+        }
+
+        /* ===== RESPONSIVE HERO NUEVO ===== */
+        @media (max-width: 1024px) {
+            .hero-new {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-main-image {
+                height: 320px;
+            }
+            .hero-text-wrapper {
+                padding: 0;
+                text-align: center;
+            }
+            .hero-description {
+                max-width: 100%;
+            }
+            .hero-features {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 100px;
+                min-height: auto;
+                padding-bottom: 60px;
+            }
+            .hero-new {
+                gap: 24px;
+            }
+            .hero-main-image {
+                height: 240px;
+                border-radius: var(--radius-lg);
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero-building-name {
+                font-size: 18px;
+            }
+            .hero-description {
+                font-size: 15px;
+            }
+            .btn-book-now {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         /* ===== SECTION TITLES ===== */
         .section-title {
             font-size: clamp(28px, 4vw, 42px);
@@ -1622,38 +1817,39 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg-image">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1920&q=80" alt="Vista al mar desde balcón en Miami">
-        </div>
-        <div class="hero-overlay"></div>
+    <section class="hero" style="min-height: 90vh; padding-top: 140px; padding-bottom: 80px;">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-followers">🏖️ 16K seguidores en Instagram</span>
+            <div class="hero-new">
+                <!-- Imagen a la izquierda -->
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80" alt="Modern apartment with city view in Miami" class="hero-main-image">
+                    <div class="hero-image-badge">🏖️ Miami Beach</div>
                 </div>
-                <h1>Tu departamento frente al mar en Miami</h1>
-                <p class="hero-sub">Para tus vacaciones en familia o viajes de negocios. Alojamientos verificados en los mejores edificios de Miami Beach. Reserva fácil, sin complicaciones.</p>
-                <div class="hero-ctas">
-                    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami+-+Familias+y+Compras" class="btn btn-whatsapp" target="_blank">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a5.593 5.593 0 01-5.492-5.392A5.593 5.593 0 0112 5.403c1.619 0 3.127.776 4.246 2.074.339.393.532.89.532 1.425v.065c0 1.062-.382 2.063-1.08 2.81l-.457.457c-.378.378-.869.589-1.393.589H7.082c-.535 0-1.037-.223-1.411-.606l-.457-.457c-.634-.628-.986-1.45-.986-2.331 0-1.38 1.12-2.5 2.5-2.5h.002l.06.002c.69.006 1.336.22 1.872.631.536.412.872.988 1.008 1.743l.013.107c.007.063.011.127.011.192 0 .065-.005.13-.014.194l-.022.15c-.068.447-.219.868-.45 1.248-.231.38-.541.709-.923.977l-.083.059c-.378.252-.815.39-1.261.39H9.5c-.524 0-1.03-.167-1.461-.504l-.083-.078c-.431-.404-.66-.965-.66-1.544V16.5c0-.579.23-1.128.63-1.514l.064-.063c.4-.385.949-.594 1.492-.594h1.164c.524 0 1.023.186 1.403.522l.065.063c.399.385.615.9.615 1.444v.062z"/></svg>
-                        Cotizar por WhatsApp
+                
+                <!-- Texto a la derecha -->
+                <div class="hero-text-wrapper">
+                    <h1 class="hero-title">Live the <span class="highlight">Miami Lifestyle</span></h1>
+                    <p class="hero-building-name">Hyde House • Brickell</p>
+                    <p class="hero-description">Tu departamento de ensueño frente al mar. Disfruta de vistas espectaculares, amenities premium y la mejor ubicación de Miami.</p>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                            <span>Vista al mar</span>
+                        </div>
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg>
+                            <span>Parking incluido</span>
+                        </div>
+                        <div class="hero-feature">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 21c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-1 .18-1.45.55-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-.9-.55-1.45-.55v-2c.74 0 1.37.64 1.89 1.27.4.48.77.93 1.15 1.25.45.37.9.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36s1-.18 1.45-.55c.38-.32.75-.77 1.15-1.25.52-.63 1.05-1.27 1.89-1.27s1.38.64 1.89 1.27c.4.48.77.93 1.15 1.25.45.37 1.24.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64v2z"/></svg>
+                            <span>Piscina & Spa</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/1234567890?text=Hola%2C+me+interesa+alquilar+en+Miami" class="btn btn-book-now" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                        Book Now
                     </a>
-                    <a href="#propiedades" class="btn btn-secondary">Ver alojamientos</a>
-                </div>
-                <div class="hero-trust">
-                    <span class="hero-trust-item">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        +150 estancias/mes
-                    </span>
-                    <span class="hero-trust-item">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 21c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-1 .18-1.45.55-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-.9-.55-1.45-.55v-2c.74 0 1.37.64 1.89 1.27.4.48.77.93 1.15 1.25.45.37.9.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36s1-.18 1.45-.55c.38-.32.75-.77 1.15-1.25.52-.63 1.05-1.27 1.89-1.27s1.38.64 1.89 1.27c.4.48.77.93 1.15 1.25.45.37 1.24.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64v2z"/></svg>
-                        🏖️ Frente al mar
-                    </span>
-                    <span class="hero-trust-item">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                        Check-in fácil
-                    </span>
+                    <p class="hero-price">Desde <strong>$140/noche</strong> • Reserva con 20%</p>
                 </div>
             </div>
         </div>
