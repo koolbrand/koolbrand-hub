@@ -247,7 +247,7 @@
             overflow: hidden;
         }
 
-        .hero-video-container {
+        .hero-bg-image {
             position: absolute;
             top: 0;
             right: 0;
@@ -256,7 +256,7 @@
             z-index: 1;
         }
 
-        .hero-video {
+        .hero-bg-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -268,12 +268,13 @@
             right: 0;
             width: 55%;
             height: 100%;
-            background: linear-gradient(90deg, transparent 30%, rgba(248,249,250,0.9) 100%);
+            background: linear-gradient(90deg, transparent 30%, rgba(248,249,250,0.92) 100%);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 55%;
         }
 
@@ -1038,9 +1039,12 @@
             .hero-content {
                 max-width: 100%;
             }
-            .hero-video-container,
+            .hero-bg-image,
             .hero-overlay {
                 display: none;
+            }
+            .hero {
+                background: linear-gradient(135deg, #F8F9FA 0%, #E8F0ED 100%);
             }
             .steps-grid,
             .packs-grid,
@@ -1357,16 +1361,14 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%231B4D3E' width='1920' height='1080'/%3E%3Ctext x='50%25' y='50%25' font-size='80' fill='white' text-anchor='middle'%3E🏠%3C/text%3E%3C/svg%3E">
-                <source src="../mnt/clientes/Te%20Alquilo%20en%20Miami/Web/Video/Te%20akquilo%20miami%20-%20Video%20Web.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
+        <div class="hero-bg-image">
+            <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=1920&q=80" alt="Miami Beach Sunset">
         </div>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-followers">⭐ 16K seguidores en Instagram</span>
+                    <span class="badge-followers">🏖️ 16K seguidores en Instagram</span>
                 </div>
                 <h1>Tu departamento frente al mar en Miami</h1>
                 <p class="hero-sub">Para tus vacaciones en familia o viajes de negocios. Alojamientos verificados en los mejores edificios de Miami Beach. Reserva fácil, sin complicaciones.</p>
@@ -1383,8 +1385,8 @@
                         +150 estancias/mes
                     </span>
                     <span class="hero-trust-item">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        Atención 24/7
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 21c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-1 .18-1.45.55-.38.32-.75.77-1.15 1.25-.52.63-1.05 1.27-1.89 1.27s-1.38-.64-1.89-1.27c-.4-.48-.77-.93-1.15-1.25-.45-.37-.9-.55-1.45-.55v-2c.74 0 1.37.64 1.89 1.27.4.48.77.93 1.15 1.25.45.37.9.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36s1-.18 1.45-.55c.38-.32.75-.77 1.15-1.25.52-.63 1.05-1.27 1.89-1.27s1.38.64 1.89 1.27c.4.48.77.93 1.15 1.25.45.37 1.24.55 1.45.55.55 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64v2z"/></svg>
+                        🏖️ Frente al mar
                     </span>
                     <span class="hero-trust-item">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
@@ -1430,9 +1432,9 @@
             <p class="section-subtitle text-center">Selecciona el tipo de estancia que mejor se adapte a tu viaje</p>
             <div class="packs-grid">
                 <div class="pack-card">
-                    <div class="pack-image">🛒</div>
+                    <div class="pack-image" style="background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80') center/cover;"></div>
                     <div class="pack-content">
-                        <span class="pack-badge">Más vendido</span>
+                        <span class="pack-badge">🏪 Más vendido</span>
                         <h3>Familias & Compras</h3>
                         <p class="pack-duration">7 - 14 noches</p>
                         <ul class="pack-features">
@@ -1453,9 +1455,9 @@
                     </div>
                 </div>
                 <div class="pack-card">
-                    <div class="pack-image">🏖️</div>
+                    <div class="pack-image" style="background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80') center/cover;"></div>
                     <div class="pack-content">
-                        <span class="pack-badge">Relax</span>
+                        <span class="pack-badge">🌴 Relax</span>
                         <h3>Playa & Relax</h3>
                         <p class="pack-duration">7 - 10 noches</p>
                         <ul class="pack-features">
@@ -1476,9 +1478,9 @@
                     </div>
                 </div>
                 <div class="pack-card">
-                    <div class="pack-image">💼</div>
+                    <div class="pack-image" style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80') center/cover;"></div>
                     <div class="pack-content">
-                        <span class="pack-badge">Pro</span>
+                        <span class="pack-badge">💻 Pro</span>
                         <h3>Estadías Largas</h3>
                         <p class="pack-duration">15 - 60 noches</p>
                         <ul class="pack-features">
@@ -1516,11 +1518,9 @@
                 <button class="filter-btn" data-filter="hollywood">Hollywood</button>
             </div>
 
-            <div class="properties-grid">
                 <div class="property-card" data-zone="brickell" data-capacity="4-6">
-                    <div class="property-image">
-                        <span class="property-tag">Brickell</span>
-                        🏢
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80') center/cover;">
+                        <span class="property-tag">🏢 Brickell</span>
                     </div>
                     <div class="property-content">
                         <h3>Moderno apartamento en Brickell</h3>
@@ -1533,9 +1533,8 @@
                     </div>
                 </div>
                 <div class="property-card" data-zone="beach" data-capacity="2-4">
-                    <div class="property-image" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                        <span class="property-tag">Miami Beach</span>
-                        🏖️
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=600&q=80') center/cover;">
+                        <span class="property-tag">🏖️ Miami Beach</span>
                     </div>
                     <div class="property-content">
                         <h3>Studio frente a la playa</h3>
@@ -1548,9 +1547,8 @@
                     </div>
                 </div>
                 <div class="property-card" data-zone="hollywood" data-capacity="6+">
-                    <div class="property-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="property-tag">Hollywood</span>
-                        🏠
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80') center/cover;">
+                        <span class="property-tag">🏠 Hollywood</span>
                     </div>
                     <div class="property-content">
                         <h3>Casa familiar con piscina</h3>
@@ -1563,9 +1561,8 @@
                     </div>
                 </div>
                 <div class="property-card" data-zone="downtown" data-capacity="4-6">
-                    <div class="property-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <span class="property-tag">Downtown</span>
-                        🌆
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80') center/cover;">
+                        <span class="property-tag">🌆 Downtown</span>
                     </div>
                     <div class="property-content">
                         <h3>Penthouse con vista al skyline</h3>
@@ -1578,9 +1575,8 @@
                     </div>
                 </div>
                 <div class="property-card" data-zone="beach" data-capacity="4-6">
-                    <div class="property-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        <span class="property-tag">Miami Beach</span>
-                        🌴
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80') center/cover;">
+                        <span class="property-tag">🌴 Miami Beach</span>
                     </div>
                     <div class="property-content">
                         <h3>Condo con amenities completos</h3>
@@ -1593,9 +1589,8 @@
                     </div>
                 </div>
                 <div class="property-card" data-zone="brickell" data-capacity="2-4">
-                    <div class="property-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-                        <span class="property-tag">Brickell</span>
-                        💎
+                    <div class="property-image" style="background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80') center/cover;">
+                        <span class="property-tag">💎 Brickell</span>
                     </div>
                     <div class="property-content">
                         <h3>Suite de lujo en tower</h3>
@@ -1660,9 +1655,9 @@
             
             <div class="buildings-grid">
                 <div class="building-card">
-                    <div class="building-image hyde">🏢</div>
+                    <div class="building-image hyde" style="background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80') center/cover;"></div>
                     <div class="building-content">
-                        <span class="building-badge">Hyde House</span>
+                        <span class="building-badge">🏢 Hyde House</span>
                         <h3>Hyde House</h3>
                         <div class="building-location">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
@@ -1690,9 +1685,9 @@
                 </div>
 
                 <div class="building-card">
-                    <div class="building-image tempo">🌴</div>
+                    <div class="building-image tempo" style="background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80') center/cover;"></div>
                     <div class="building-content">
-                        <span class="building-badge">Tempo Aparts</span>
+                        <span class="building-badge">🌴 Tempo Aparts</span>
                         <h3>Tempo Aparts</h3>
                         <div class="building-location">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
@@ -1720,9 +1715,9 @@
                 </div>
 
                 <div class="building-card">
-                    <div class="building-image pavilion">🏖️</div>
+                    <div class="building-image pavilion" style="background: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=600&q=80') center/cover;"></div>
                     <div class="building-content">
-                        <span class="building-badge">Pavilion</span>
+                        <span class="building-badge">🏖️ Pavilion</span>
                         <h3>Pavilion</h3>
                         <div class="building-location">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
@@ -1750,9 +1745,9 @@
                 </div>
 
                 <div class="building-card">
-                    <div class="building-image collins">🌆</div>
+                    <div class="building-image collins" style="background: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80') center/cover;"></div>
                     <div class="building-content">
-                        <span class="building-badge">Collins 5445</span>
+                        <span class="building-badge">🌆 Collins 5445</span>
                         <h3>Collins 5445</h3>
                         <div class="building-location">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
@@ -1882,17 +1877,17 @@
             <div class="trust-grid">
                 <div class="trust-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    <h3>Reserva clara</h3>
+                    <h3>🏖️ Reserva clara</h3>
                     <p>Paga el 20% para bloquear y el resto al llegar. Sin sorpresas.</p>
                 </div>
                 <div class="trust-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-                    <h3>Acompañamiento</h3>
+                    <h3>🌴 Acompañamiento</h3>
                     <p>Atención personalizada antes y durante tu viaje.</p>
                 </div>
                 <div class="trust-item">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                    <h3>Transparencia</h3>
+                    <h3>✍️ Transparencia</h3>
                     <p>Confirmación y condiciones por escrito antes de pagar.</p>
                 </div>
             </div>
